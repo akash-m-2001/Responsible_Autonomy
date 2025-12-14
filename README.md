@@ -20,12 +20,12 @@
 
   Repository Structure
 .
-  ├── 01_dataset_construction_and_normalization.ipynb
-  ├── 02_roberta_prompt_injection_training.ipynb
-  ├── 03_stateless_runtime_governance_roberta.ipynb
-  ├── 04_stateful_runtime_governance_multiturn.ipynb
-  ├── README.md
-  └── .gitignore
+01_dataset_construction_and_normalization.ipynb
+02_roberta_prompt_injection_training.ipynb
+03_stateless_runtime_governance_roberta.ipynb
+04_stateful_runtime_governance_multiturn.ipynb
+README.md
+.gitignore
 
 **Notebooks**
 **1. Dataset Construction**
@@ -37,6 +37,65 @@ Aggregates multiple public prompt injection datasets
 Normalizes schema across sources
 
 Produces final train / validation / test splits
+**Prerequisites**
+
+To run the notebooks and reproduce the experiments, the following environment is required.
+
+**Software**
+
+Python 3.9+
+
+Jupyter Notebook or JupyterLab or Any environment supports notebooks
+
+**Core Libraries**
+
+numpy
+
+pandas
+
+scikit-learn
+
+matplotlib
+
+seaborn
+
+torch
+
+transformers
+
+datasets
+
+**Optional (Recommended)**
+
+CUDA-enabled GPU for model training
+
+NVIDIA drivers compatible with PyTorch (if using GPU)
+
+**Installation**
+All required packages can be installed using:
+
+pip install numpy pandas scikit-learn matplotlib seaborn torch transformers datasets
+
+**Hardware Notes**
+
+Model training (Notebook 02) benefits significantly from GPU acceleration.
+
+Runtime governance notebooks (Notebooks 03 and 04) can be run on CPU.
+
+**Execution Order**
+
+To ensure correct dependencies between steps, run notebooks in the following order:
+
+01_dataset_construction_and_normalization.ipynb
+02_roberta_prompt_injection_training.ipynb
+03_stateless_runtime_governance_roberta.ipynb
+04_stateful_runtime_governance_multiturn.ipynb
+
+**Environment Warnings**
+
+You may encounter warnings related to HuggingFace tokenizers parallelism when running in notebook environments. These warnings do not affect correctness and can be safely ignored or suppressed by setting:
+
+export TOKENIZERS_PARALLELISM=false
 
 **Outputs:**
 
@@ -127,7 +186,7 @@ Run notebooks in order:
 
 01 → 02 → 03 → 04
 
-
+Due to Github free tier size limits, I am unable to upload datasets and model but can be reproduced by using those notebooks.
 Generated CSV outputs will appear in the output folders
 
 Figures in the report are directly derived from these outputs
